@@ -17,4 +17,5 @@ $demo-theme: mat.define-light-theme((
 
 @include mat.all-component-themes($demo-theme);
 
-@include proto-table.theme($demo-theme);
+@include proto-table.action-bar-theme($demo-theme);
+@include proto-table.paginator-theme($demo-theme);
