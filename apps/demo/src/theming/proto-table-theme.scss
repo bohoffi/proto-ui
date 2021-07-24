@@ -1,31 +1,66 @@
 @use 'sass:map';
 @use '~@angular/material' as mat;
 
-@mixin proto-table-color($theme) {
+@mixin action-bar-color($color-config) {
 
-    // Get the color config from the theme.
-    $color-config: mat.get-color-config($theme);
-    // Get the primary color palette from the color-config.
-    $primary-palette: map.get($color-config, 'primary');
+    $primary: map.get($color-config, 'primary');
+    $accent: map.get($color-config, 'accent');
+    $warn: map.get($color-config, 'warn');
 
     .proto-ui-table-container {
 
         .proto-ui-table-action-bar {
-            background-color: mat.get-color-from-palette($primary-palette);
-            color: mat.get-color-from-palette($primary-palette, 'default-contrast');
-        }
-        
-        // ::ng-deep .proto-ui-table-paginator > * {
-        .proto-ui-table-paginator > * {
-            background-color: mat.get-color-from-palette($primary-palette, 'darker');
-            color: mat.get-color-from-palette($primary-palette, 'darker-contrast');
+            &.mat-primary {
+                background-color: mat.get-color-from-palette($primary);
+                color: mat.get-color-from-palette($primary, 'default-contrast');
+            }
+            &.mat-accent {
+                background-color: mat.get-color-from-palette($accent);
+                color: mat.get-color-from-palette($accent, 'default-contrast');
+            }
+            &.mat-warn {
+                background-color: mat.get-color-from-palette($warn);
+                color: mat.get-color-from-palette($warn, 'default-contrast');
+            }
         }
     }
 }
 
-@mixin theme($theme) {
+@mixin paginator-color($color-config) {
+
+    $primary: map.get($color-config, 'primary');
+    $accent: map.get($color-config, 'accent');
+    $warn: map.get($color-config, 'warn');
+
+    .proto-ui-table-container {
+
+        .proto-ui-table-paginator {
+            &.mat-primary .mat-paginator {
+                background-color: mat.get-color-from-palette($primary, 'darker');
+                color: mat.get-color-from-palette($primary, 'darker-contrast');
+            }
+            &.mat-accent .mat-paginator {
+                background-color: mat.get-color-from-palette($accent, 'darker');
+                color: mat.get-color-from-palette($accent, 'darker-contrast');
+            }
+            &.mat-warn .mat-paginator {
+                background-color: mat.get-color-from-palette($warn, 'darker');
+                color: mat.get-color-from-palette($warn, 'darker-contrast');
+            }
+        }
+    }
+}
+
+@mixin action-bar-theme($theme) {
     $color-config: mat.get-color-config($theme);
     @if $color-config != null {
-      @include proto-table-color($theme);
+      @include action-bar-color($color-config);
+    }
+}
+
+@mixin paginator-theme($theme) {
+    $color-config: mat.get-color-config($theme);
+    @if $color-config != null {
+      @include paginator-color($color-config);
     }
 }
