@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
+import { MatPaginatorModule } from '@angular/material/paginator';
+
 import { ProtoTableComponent } from './components/proto-table/proto-table.component';
 import { ProtoTablePaginatorComponent } from './components/proto-table-paginator/proto-table-paginator.component';
 import { ProtoTableContainerDirective } from './directives/proto-table-container.directive';
@@ -9,7 +12,11 @@ import { ProtoTablePrintActionDirective } from './directives/proto-table-print-a
 import { ProtoTableColumnSelectionActionDirective } from './directives/proto-table-column-selection-action.directive';
 
 @NgModule({
-  imports: [CommonModule],
+  imports: [
+    CommonModule,
+
+    MatPaginatorModule
+  ],
   declarations: [
     ProtoTableComponent,
     ProtoTablePaginatorComponent,
