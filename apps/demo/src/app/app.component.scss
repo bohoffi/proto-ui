@@ -2,7 +2,6 @@
     padding: 1em;
 
     .proto-ui-table-action-bar {
-        background-color: lightgray;
         padding: 0 1em;
     
         display: flex;
@@ -12,9 +11,5 @@
         span.spacer {
             flex-grow: 1;
         }
-    }
-    
-    ::ng-deep .proto-ui-table-paginator > * {
-        background-color: lightblue;
     }
 }

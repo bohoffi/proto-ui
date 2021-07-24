@@ -1,0 +1,20 @@
+@use '~@angular/material' as mat;
+@use './theming/proto-table-theme' as proto-table;
+
+@include mat.core();
+
+$demo-primary: mat.define-palette(mat.$indigo-palette);
+$demo-accent: mat.define-palette(mat.$deep-orange-palette, A200, A100, A400);
+$demo-warn: mat.define-palette(mat.$red-palette);
+
+$demo-theme: mat.define-light-theme((
+  color: (
+    primary: $demo-primary,
+    accent: $demo-accent,
+    warn: $demo-warn,
+  )
+));
+
+@include mat.all-component-themes($demo-theme);
+
+@include proto-table.theme($demo-theme);
