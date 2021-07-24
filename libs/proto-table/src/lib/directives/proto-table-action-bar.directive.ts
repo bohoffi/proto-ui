@@ -1,4 +1,5 @@
-import { AfterContentInit, ContentChild, Directive, EventEmitter, HostBinding, OnDestroy, Output } from '@angular/core';
+import { AfterContentInit, ContentChild, Directive, ElementRef, EventEmitter, HostBinding, Input, OnDestroy, Output } from '@angular/core';
+import { ThemePalette } from '@angular/material/core';
 import { Subscription } from 'rxjs';
 import { ProtoTableColumnSelectionActionDirective } from './proto-table-column-selection-action.directive';
 import { ProtoTableExportActionDirective } from './proto-table-export-action.directive';
@@ -19,6 +20,12 @@ export class ProtoTableActionBarDirective implements AfterContentInit, OnDestroy
   @HostBinding('class')
   public readonly hostClass = 'proto-ui-table-action-bar';
 
+  @Input()
+  public set color(value: ThemePalette) {
+    const colorPalette = value || this.defaultColor;
+    this.elementRef.nativeElement.classList.add(`mat-${colorPalette}`);
+  }
+
   @Output()
   public export = new EventEmitter<void>();
   @Output()
@@ -27,6 +34,10 @@ export class ProtoTableActionBarDirective implements AfterContentInit, OnDestroy
   public columnSelection = new EventEmitter<void>();
 
   private readonly subscriptions = new Subscription();
+
+  private readonly defaultColor = undefined;
+
+  constructor(private readonly elementRef: ElementRef) { }
 
   public ngAfterContentInit(): void {
     if (this.exportAction) {
