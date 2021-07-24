@@ -91,34 +91,50 @@
         }
       }
     },
-    "demo-e2e": {
-      "root": "apps/demo-e2e",
-      "sourceRoot": "apps/demo-e2e/src",
-      "projectType": "application",
+    "proto-table": {
+      "projectType": "library",
+      "root": "libs/proto-table",
+      "sourceRoot": "libs/proto-table/src",
+      "prefix": "proto-ui",
       "architect": {
-        "e2e": {
-          "builder": "@nrwl/cypress:cypress",
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "outputs": ["dist/libs/proto-table"],
           "options": {
-            "cypressConfig": "apps/demo-e2e/cypress.json",
-            "tsConfig": "apps/demo-e2e/tsconfig.e2e.json",
-            "devServerTarget": "demo:serve:development"
+            "project": "libs/proto-table/ng-package.json"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "demo:serve:production"
+              "tsConfig": "libs/proto-table/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/proto-table/tsconfig.lib.json"
             }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/proto-table"],
+          "options": {
+            "jestConfig": "libs/proto-table/jest.config.js",
+            "passWithNoTests": true
           }
         },
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/demo-e2e/**/*.{js,ts}"]
+            "lintFilePatterns": [
+              "libs/proto-table/src/**/*.ts",
+              "libs/proto-table/src/**/*.html"
+            ]
           }
         }
       }
     }
   },
   "cli": {
+    "analytics": "118a1f08-5b38-403b-bbb1-a474879f710f",
     "defaultCollection": "@nrwl/angular"
   },
   "schematics": {
@@ -136,8 +152,7 @@
     "@nrwl/angular:application": {
       "style": "scss",
       "linter": "eslint",
-      "unitTestRunner": "jest",
-      "e2eTestRunner": "cypress"
+      "unitTestRunner": "jest"
     },
     "@nrwl/angular:library": {
       "style": "scss",

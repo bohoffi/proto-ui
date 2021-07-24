@@ -6,5 +6,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'demo';
+
+  public export(): void {
+    console.log('export');
+  }
+
+  public print(): void {
+    console.log('print');
+  }
+
+  public columnSelection(): void {
+    console.log('columnSelection');
+  }
 }
