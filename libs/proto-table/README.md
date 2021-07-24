@@ -2,21 +2,11 @@
 
 ## Building blocks
 
-Every building is functional on its own but to get the most of them they should be used in combination.
+Every building block is functional on its own but to get the most of them they should be used in combination.
 
-<div style="border: 1px solid black; display: flex; flex-direction: column; padding: 1em;">
-    <h2 style="padding-bottom: 0.5em">proto-ui-table-container</h2>
-    <div style="border: 1px solid black; display: flex; flex-direction: column; padding: 1em;">
-        <h2>proto-ui-table-action-bar</h2>
-    </div>
-    <div style="border: 1px solid black; display: flex; flex-direction: column; padding: 1em; margin-top: 0.5em;">
-        <h2>proto-ui-table</h2>
-    </div>
-    <div style="border: 1px solid black; display: flex; flex-direction: column; padding: 1em; margin-top: 0.5em;">
-        <h2>proto-ui-table-paginator</h2>
-    </div>
-</div>
-<br>
+<p align="center">
+ <img width="80%" src="./assets/building-blocks.png">
+</p>
 
 ### proto-ui-table-container
 
