@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@proto-ui/core": ["libs/proto-core/src/index.ts"],
       "@proto-ui/table": ["libs/proto-table/src/index.ts"]
     }
   },

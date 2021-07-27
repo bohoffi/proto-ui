@@ -1,5 +1,5 @@
-import { AfterContentInit, ContentChild, Directive, ElementRef, EventEmitter, HostBinding, Input, OnDestroy, Output } from '@angular/core';
-import { ThemePalette } from '@angular/material/core';
+import { AfterContentInit, ContentChild, Directive, ElementRef, EventEmitter, OnDestroy, Output } from '@angular/core';
+import { ColorBase } from '@proto-ui/core';
 import { Subscription } from 'rxjs';
 import { ProtoTableColumnSelectionActionDirective } from './proto-table-column-selection-action.directive';
 import { ProtoTableExportActionDirective } from './proto-table-export-action.directive';
@@ -8,7 +8,7 @@ import { ProtoTablePrintActionDirective } from './proto-table-print-action.direc
 @Directive({
   selector: 'proto-ui-table-action-bar, [proto-ui-table-action-bar]'
 })
-export class ProtoTableActionBarDirective implements AfterContentInit, OnDestroy {
+export class ProtoTableActionBarDirective extends ColorBase implements AfterContentInit, OnDestroy {
 
   @ContentChild(ProtoTableExportActionDirective)
   private exportAction: ProtoTableExportActionDirective | undefined;
@@ -17,14 +17,7 @@ export class ProtoTableActionBarDirective implements AfterContentInit, OnDestroy
   @ContentChild(ProtoTableColumnSelectionActionDirective)
   private columnSelectionAction: ProtoTableColumnSelectionActionDirective | undefined;
 
-  @HostBinding('class')
   public readonly hostClass = 'proto-ui-table-action-bar';
-
-  @Input()
-  public set color(value: ThemePalette) {
-    const colorPalette = value || this.defaultColor;
-    this.elementRef.nativeElement.classList.add(`mat-${colorPalette}`);
-  }
 
   @Output()
   public export = new EventEmitter<void>();
@@ -35,9 +28,9 @@ export class ProtoTableActionBarDirective implements AfterContentInit, OnDestroy
 
   private readonly subscriptions = new Subscription();
 
-  private readonly defaultColor = undefined;
-
-  constructor(private readonly elementRef: ElementRef) { }
+  constructor(elementRef: ElementRef) {
+    super(elementRef);
+  }
 
   public ngAfterContentInit(): void {
     if (this.exportAction) {

@@ -11,6 +11,7 @@ Every building block is functional on its own but to get the most of them they s
 ### proto-ui-table-container
 
 - ✅ Orchestrates subordinate building block
+  - binds paginator to table datasource and vice versa
 - ✅ Provides access to basic action bar events (export, print, column selection)
 - ✅ Building blocks can be placed freely
   - Consuming application has full layout/style control

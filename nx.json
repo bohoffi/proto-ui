@@ -30,6 +30,9 @@
     "demo": {
       "tags": []
     },
+    "proto-core": {
+      "tags": []
+    },
     "proto-table": {
       "tags": []
     }

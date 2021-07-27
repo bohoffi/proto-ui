@@ -91,6 +91,47 @@
         }
       }
     },
+    "proto-core": {
+      "projectType": "library",
+      "root": "libs/proto-core",
+      "sourceRoot": "libs/proto-core/src",
+      "prefix": "proto-ui",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "outputs": ["dist/libs/proto-core"],
+          "options": {
+            "project": "libs/proto-core/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/proto-core/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/proto-core/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/proto-core"],
+          "options": {
+            "jestConfig": "libs/proto-core/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/proto-core/src/**/*.ts",
+              "libs/proto-core/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
     "proto-table": {
       "projectType": "library",
       "root": "libs/proto-table",
