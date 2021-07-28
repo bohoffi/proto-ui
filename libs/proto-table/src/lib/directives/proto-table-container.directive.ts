@@ -1,8 +1,8 @@
 import { AfterContentInit, ContentChild, Directive, EventEmitter, HostBinding, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { ProtoTablePaginatorComponent } from '../components/proto-table-paginator/proto-table-paginator.component';
 import { ProtoTableComponent } from '../components/proto-table/proto-table.component';
 import { ProtoTableActionBarDirective } from './proto-table-action-bar.directive';
+import { ProtoTablePaginatorDirective } from './proto-table-paginator.directive';
 
 @Directive({
   selector: 'proto-ui-table-container, [proto-ui-table-container]'
@@ -18,8 +18,8 @@ export class ProtoTableContainerDirective implements AfterContentInit, OnDestroy
   @ContentChild(ProtoTableComponent)
   public table: ProtoTableComponent | undefined;
 
-  @ContentChild(ProtoTablePaginatorComponent)
-  public paginator: ProtoTablePaginatorComponent | undefined;
+  @ContentChild(ProtoTablePaginatorDirective)
+  public paginator: ProtoTablePaginatorDirective | undefined;
 
   public get onExport(): EventEmitter<void> | undefined {
     return this.actionBar?.export;
