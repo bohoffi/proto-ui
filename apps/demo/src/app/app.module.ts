@@ -8,6 +8,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { ProtoTableModule } from '@proto-ui/table';
 
 import { AppComponent } from './app.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [AppComponent],
@@ -17,6 +18,7 @@ import { AppComponent } from './app.component';
 
     MatButtonModule,
     MatIconModule,
+    MatPaginatorModule,
 
     ProtoTableModule
   ],

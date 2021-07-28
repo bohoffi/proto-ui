@@ -35,15 +35,15 @@
     .proto-ui-table-container {
 
         .proto-ui-table-paginator {
-            &.mat-primary .mat-paginator {
+            &.mat-primary {
                 background-color: mat.get-color-from-palette($primary, 'darker');
                 color: mat.get-color-from-palette($primary, 'darker-contrast');
             }
-            &.mat-accent .mat-paginator {
+            &.mat-accent {
                 background-color: mat.get-color-from-palette($accent, 'darker');
                 color: mat.get-color-from-palette($accent, 'darker-contrast');
             }
-            &.mat-warn .mat-paginator {
+            &.mat-warn {
                 background-color: mat.get-color-from-palette($warn, 'darker');
                 color: mat.get-color-from-palette($warn, 'darker-contrast');
             }
